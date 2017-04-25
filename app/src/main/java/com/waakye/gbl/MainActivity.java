@@ -13,10 +13,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
-        // Create an ArrayList of BookListing objects
-        ArrayList<BookListing> bookListings = new ArrayList<BookListing>();
-        bookListings.add(new BookListing("Moby Dick", "Herman Melville", "Plot of Moby Dick", "544 pages"));
-        bookListings.add(new BookListing("Billy Budd", "Herman Melville", "Plot of Billy Budd", "116 pages"));
+        // Create a fake list of books
+        ArrayList<BookListing> bookListings = QueryUtils.extractBookListings();
 
         // Create an {@link BookListingAdapter} whose data source is a list of {@link BookListing}s.
         // The adapter knows how to create list item views for each item in the list
