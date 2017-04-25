@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">GBL</string>
+    <string name="app_label">Book Search Powered by Google</string>
+    <string name="search_hint">Enter book keywords</string>
 </resources>
