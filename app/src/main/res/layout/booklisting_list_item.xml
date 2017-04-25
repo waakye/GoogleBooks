@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/activity_padding">
+
+    <TextView
+        android:id="@+id/book_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Moby Dick"/>
+
+    <TextView
+        android:id="@+id/book_author"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Herman Melville"/>
+
+    <TextView
+        android:id="@+id/book_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="A skipper of a nineteenth-century whaling boat is obsessed with the idea of harpooning the whale responsible for the loss of his leg."/>
+
+    <TextView
+        android:id="@+id/book_page_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="544 pages"/>
+
+</LinearLayout>
