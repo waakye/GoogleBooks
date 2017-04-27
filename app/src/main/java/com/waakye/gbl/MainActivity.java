@@ -22,6 +22,10 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     private static final String GOOGLE_BOOKS_QUERY
         = "https://www.googleapis.com/books/v1/volumes?q=hawthorne&key=AIzaSyA49wUdKh_qlFv5FiexsdYdLyv8rNEDiko";
 
+    private static final String GOOGLE_BOOKS_QUERY_PREFIX = "https://www.googleapis.com/books/v1/volumes?q=";
+
+    private static final String API_KEY = "AIzaSyA49wUdKh_qlFv5FiexsdYdLyv8rNEDiko";
+
     /**
      * Constant value for the booklisting loader ID
      */
@@ -33,6 +37,20 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     /** TextView that is displayed when the list is empty */
     private TextView mEmptyStateTextView;
 
+    public String search_terms = "";
+
+    private String concatenated_search_terms = "";
+
+    private String urlQueryString(String search_terms) {
+
+        concatenated_search_terms = search_terms.trim().replace(" ", "+");
+        StringBuilder sb = new StringBuilder(GOOGLE_BOOKS_QUERY_PREFIX);
+        sb.append(concatenated_search_terms);
+        sb.append("&key=");
+        sb.append(API_KEY);
+        String builtString = sb.toString();
+        return builtString;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
