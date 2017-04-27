@@ -2,6 +2,7 @@ package com.waakye.gbl;
 
 import android.content.AsyncTaskLoader;
 import android.content.Context;
+import android.util.Log;
 
 import java.util.List;
 
@@ -29,6 +30,7 @@ public class BookListingLoader extends AsyncTaskLoader<List<BookListing>> {
 
     @Override
     protected void onStartLoading() {
+        Log.i(LOG_TAG, "TEST: BookListingLoader onStartLoading() called ...");
         forceLoad();
     }
 
@@ -37,6 +39,7 @@ public class BookListingLoader extends AsyncTaskLoader<List<BookListing>> {
      */
     @Override
     public List<BookListing> loadInBackground() {
+        Log.i(LOG_TAG, "TEST: BookListingLoader loadInBackground() called ...");
         if (mUrl == null) {
             return null;
         }

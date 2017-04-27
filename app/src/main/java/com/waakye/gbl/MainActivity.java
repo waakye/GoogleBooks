@@ -7,6 +7,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -32,8 +33,10 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     /** TextView that is displayed when the list is empty */
     private TextView mEmptyStateTextView;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.i(LOG_TAG, "TEST: MainActivity onCreate() called... ");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
@@ -48,7 +51,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
         // So the adapter on the {@link ListView} so the list can be populated in the user interface
         listView.setAdapter(mAdapter);
-
 
 
         // Get a reference to the ConnectivityManager to check the state of network connectivity
@@ -80,12 +82,15 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     @Override
     public Loader<List<BookListing>> onCreateLoader(int id, Bundle args) {
+        Log.i(LOG_TAG, "TEST: MainActivity onCreateLoader() called... ");
         // Create a new loader for the given URL
         return new BookListingLoader(this, GOOGLE_BOOKS_QUERY);
     }
 
     @Override
     public void onLoadFinished(Loader<List<BookListing>> loader, List<BookListing> data) {
+        Log.i(LOG_TAG, "TEST: MainActivity onLoadFinished() called... ");
+
         // Hide loading indicator because the data has been loaded
         View loadingIndicator = findViewById(R.id.loading_indicator);
         loadingIndicator.setVisibility(View.GONE);
@@ -107,6 +112,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     @Override
     public void onLoaderReset(Loader<List<BookListing>> loader) {
+        Log.i(LOG_TAG, "TEST: MainActivity onLoaderReset() called... ");
         // Loader reset, so we can clear out our existing data
         mAdapter.clear();
     }

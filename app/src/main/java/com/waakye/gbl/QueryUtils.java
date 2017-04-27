@@ -33,6 +33,7 @@ public final class QueryUtils {
      * Query the Google Books dataset and return a list of {@link BookListing} objects
      */
     public static List<BookListing> fetchBookListingData(String requestUrl) {
+        Log.i(LOG_TAG, "QueryUtils fetchBookListingData() called...");
         // Create URL object
         URL url = createUrl(requestUrl);
 
@@ -55,6 +56,8 @@ public final class QueryUtils {
      * Returns new URL object from the given string URL
      */
     private static URL createUrl(String stringUrl) {
+        Log.i(LOG_TAG, "TEST: QueryUtils createUrl() called...");
+
         URL url = null;
         try {
             url = new URL(stringUrl);
@@ -68,6 +71,8 @@ public final class QueryUtils {
      * Make an HTTP request to the given URL and return a String as the response
      */
     private static String makeHttpRequest(URL url) throws IOException {
+        Log.i(LOG_TAG, "TEST: QueryUtils makeHttpRequest() called...");
+
         String jsonResponse = "";
 
         // If the URL is null, then return early
@@ -108,6 +113,7 @@ public final class QueryUtils {
      * the server
      */
     private static String readFromStream(InputStream inputStream) throws IOException {
+        Log.i(LOG_TAG, "TEST: QueryUtils readFromStream() called...");
         StringBuilder output = new StringBuilder();
         if (inputStream != null) {
             InputStreamReader inputStreamReader = new InputStreamReader(inputStream, Charset.forName("UTF-8"));
@@ -126,6 +132,8 @@ public final class QueryUtils {
      * JSON response
      */
     private static List<BookListing> extractItemFromJson(String bookListingJson) {
+        Log.i(LOG_TAG, "TEST: QueryUtils extractItemFromJson() called...");
+
         // If the JSON string is empty or null, then return early
         if (TextUtils.isEmpty(bookListingJson)) {
             return null;
