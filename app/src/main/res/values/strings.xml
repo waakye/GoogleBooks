@@ -3,4 +3,5 @@
     <string name="app_label">Book Search Powered by Google</string>
     <string name="search_hint">Enter book keywords</string>
     <string name="no_description">No description provided.</string>
+    <string name="no_results_found">No results found.</string>
 </resources>

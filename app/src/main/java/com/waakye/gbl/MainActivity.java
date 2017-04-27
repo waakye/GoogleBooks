@@ -5,6 +5,7 @@ import android.content.Loader;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +25,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     /** Adapter for the list of booklistings */
     private BookListingAdapter mAdapter;
 
+    /** TextView that is displayed when the list is empty */
+    private TextView mEmptyStateTextView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +35,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
         // Find a reference to the {@link ListView} in the layout
         ListView listView = (ListView)findViewById(R.id.listview_booklisting);
+
+        mEmptyStateTextView = (TextView)findViewById(R.id.empty_view);
+        listView.setEmptyView(mEmptyStateTextView);
 
         // Create a new adapter that takes an empty list of booklistings as inputs
         mAdapter = new BookListingAdapter(this, new ArrayList<BookListing>());
@@ -58,6 +65,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     @Override
     public void onLoadFinished(Loader<List<BookListing>> loader, List<BookListing> data) {
+        // Set empty state to display "No results found."
+        mEmptyStateTextView.setText(R.string.no_results_found);
+        
         // Clear the adapter of previous booklistings data
         mAdapter.clear();
 
@@ -75,27 +85,4 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         // Loader reset, so we can clear out our existing data
         mAdapter.clear();
     }
-
-//    private class BookListingAsyncTask extends AsyncTask<String, Void, List<BookListing>> {
-//
-//        @Override
-//        protected List<BookListing> doInBackground(String... urls) {
-//            // Don't perform the request if there is no URLs, or the first URL is null
-//            if (urls.length < 1 || urls[0] == null) {
-//                return null;
-//            }
-//
-//            List<BookListing> result = QueryUtils.fetchBookListingData(GOOGLE_BOOKS_QUERY);
-//            return result;
-//        }
-//
-//        @Override
-//        protected void onPostExecute(List<BookListing> data) {
-//            mAdapter.clear();
-//
-//            if (data != null && !data.isEmpty()) {
-//                mAdapter.addAll(data);
-//            }
-//        }
-//    }
 }
