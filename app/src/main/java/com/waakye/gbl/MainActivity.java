@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         Log.i(LOG_TAG, "TEST: MainActivity onCreate() called... ");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-        
+
         // Find a reference to the {@link ListView} in the layout
         final ListView listView = (ListView)findViewById(R.id.listview_booklisting);
 

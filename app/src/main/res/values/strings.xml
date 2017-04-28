@@ -1,11 +1,17 @@
 <resources>
-    <string name="app_name">Google Book Listing Search</string>
     <string name="app_label">Book Search Powered by Google</string>
-    <string name="search_hint">Enter book keywords</string>
     <string name="no_description">No description provided.</string>
-    <string name="no_results_found">No results found.</string>
-    <string name="no_internet_connection">No Internet connection.</string>
+
+    <!-- Describe the UI -->
+    <string name="app_name">Google Book Listing Search</string>
     <string name="find_a_list_of_books">Find a List of Books</string>
     <string name="enter_word_or_phrase">Please enter a word or phrase</string>
     <string name="search">Search</string>
+    <string name="search_hint">Enter book keywords</string>
+
+    <!-- Possible states for EmptyTextView -->
+    <string name="no_results_found">No results found.</string>
+    <string name="no_internet_connection">No Internet connection.</string>
+    <string name="invalid_entry">Invalid entry</string>
+
 </resources>
